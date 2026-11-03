@@ -26,38 +26,30 @@ const competences = [
 </script>
 
 <template>
+  <header class="header">
+    <nav class="navbar">
+      <a href="#accueil" class="logo" @click="fermerMenu"> Cedrick<span>.dev</span> </a>
 
-<header class="header">
-  <nav class="navbar">
-    <a href="#accueil" class="logo" @click="fermerMenu">
-      Cedrick<span>.dev</span>
-    </a>
+      <button
+        type="button"
+        class="menu-toggle"
+        :aria-expanded="menuOuvert"
+        aria-controls="menu-navigation"
+        aria-label="Ouvrir ou fermer le menu"
+        @click="menuOuvert = !menuOuvert"
+      >
+        {{ menuOuvert ? '✕' : '☰' }}
+      </button>
 
-    <button
-      type="button"
-      class="menu-toggle"
-      :aria-expanded="menuOuvert"
-      aria-controls="menu-navigation"
-      aria-label="Ouvrir ou fermer le menu"
-      @click="menuOuvert = !menuOuvert"
-    >
-      {{ menuOuvert ? '✕' : '☰' }}
-    </button>
-
-    <ul
-      id="menu-navigation"
-      class="menu"
-      :class="{ 'menu-open': menuOuvert }"
-    >
-      <li><a href="#accueil" @click="fermerMenu">Accueil</a></li>
-      <li><a href="#apropos" @click="fermerMenu">À propos</a></li>
-      <li><a href="#competences" @click="fermerMenu">Compétences</a></li>
-      <li><a href="#projets" @click="fermerMenu">Projets</a></li>
-      <li><a href="#contact" @click="fermerMenu">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-
+      <ul id="menu-navigation" class="menu" :class="{ 'menu-open': menuOuvert }">
+        <li><a href="#accueil" @click="fermerMenu">Accueil</a></li>
+        <li><a href="#apropos" @click="fermerMenu">À propos</a></li>
+        <li><a href="#competences" @click="fermerMenu">Compétences</a></li>
+        <li><a href="#projets" @click="fermerMenu">Projets</a></li>
+        <li><a href="#contact" @click="fermerMenu">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main>
     <section id="accueil" class="hero">
@@ -76,6 +68,15 @@ const competences = [
         <div class="hero-buttons">
           <a href="#projets" class="btn-primary">Voir mes projets</a>
           <a href="#contact" class="btn-secondary">Me contacter</a>
+
+          <a
+            href="/cv/cv-cedrick-fotso-fictif-v2.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-cv"
+          >
+            Consulter mon CV
+          </a>
         </div>
       </div>
     </section>
@@ -165,73 +166,101 @@ const competences = [
       </div>
     </section>
 
-<section id="contact" class="contact">
-  <div class="contact-container">
-    <h2>Me contacter</h2>
+    <section id="contact" class="contact">
+      <div class="contact-container">
+        <h2>Me contacter</h2>
 
-    <p class="contact-subtitle">
-      Vous recherchez un stagiaire motivé en développement web ?
-      Je serais ravi d'échanger avec vous.
-    </p>
+        <p class="contact-subtitle">
+          Vous recherchez un stagiaire motivé en développement web ? Je serais ravi d'échanger avec
+          vous.
+        </p>
 
-    <div class="contact-content">
-      <h3>Échangeons sur votre projet !</h3>
+        <div class="contact-content">
+          <h3>Échangeons sur votre projet !</h3>
 
-      <p>
-        Actuellement à la recherche d'un stage en développement web,
-        je suis ouvert aux opportunités me permettant de mettre
-        mes compétences en pratique et de continuer à apprendre.
-      </p>
+          <p>
+            Actuellement à la recherche d'un stage en développement web, je suis ouvert aux
+            opportunités me permettant de mettre mes compétences en pratique et de continuer à
+            apprendre.
+          </p>
 
-      <div class="contact-links">
-        <a href="mailto:TON_EMAIL" class="contact-button">
-          Me contacter par email
-        </a>
+          <div class="contact-links">
+            <a href="mailto:fotsocedrick40@yahoo.com" class="contact-button">
+              Me contacter par email
+            </a>
 
-        <a
-          href="https://github.com/cedrickfo"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="github-button"
-        >
-          Mon GitHub
-        </a>
+            <a
+              href="https://github.com/cedrickfo"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="github-button"
+            >
+              Mon GitHub
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-info">
+          <h3>Cedrick<span>.dev</span></h3>
+          <p>Développeur web junior | Étudiant en BES Webdeveloper</p>
+        </div>
 
-<footer class="footer">
-  <div class="footer-container">
-    <div class="footer-info">
-      <h3>Cedrick<span>.dev</span></h3>
-      <p>Développeur web junior | Étudiant en BES Webdeveloper</p>
-    </div>
+        <div class="footer-links">
+          <a href="#accueil">Accueil</a>
+          <a href="#projets">Projets</a>
+          <a href="#contact">Contact</a>
+          <a href="https://github.com/cedrickfo" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+        </div>
 
-    <div class="footer-links">
-      <a href="#accueil">Accueil</a>
-      <a href="#projets">Projets</a>
-      <a href="#contact">Contact</a>
-      <a
-        href="https://github.com/cedrickfo"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GitHub
-      </a>
-    </div>
-
-    <div class="footer-bottom">
-      <p>© {{ new Date().getFullYear() }} Cedrick Fotso. Tous droits réservés.</p>
-    </div>
-  </div>
-</footer>
-
+        <div class="footer-bottom">
+          <p>© {{ new Date().getFullYear() }} Cedrick Fotso. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
   </main>
 </template>
 
 <style scoped>
+
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+GB+S+Guides:ital@0;1&family=Rubik+Storm&display=swap');
+
+
+h1,
+h2,
+h3 {
+  font-family: 'Rubik Storm', sans-serif;
+}
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #0f172a;
+  background-color: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+a {
+  font-family: inherit;
+}
+
 .header {
   background-color: white;
   border-bottom: 1px solid #e5e7eb;
@@ -551,7 +580,6 @@ const competences = [
   border-radius: 8px;
 }
 
-
 .contact {
   padding: 100px 24px;
   background-color: #f8fafc;
@@ -648,7 +676,6 @@ const competences = [
   }
 }
 
-
 .footer {
   background-color: #0f172a;
   color: white;
@@ -721,7 +748,6 @@ const competences = [
     font-size: 23px;
   }
 }
-
 
 /* Bouton masqué sur ordinateur */
 .menu-toggle {
@@ -802,4 +828,43 @@ const competences = [
   }
 }
 
+.btn-cv {
+  padding: 14px 28px;
+  border-radius: 8px;
+  background-color: #e2e8f0;
+  color: #1e293b;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-cv:hover {
+  background-color: #cbd5e1;
+}
+
+/* Nouvelle présentation de l'accueil */
+.hero {
+  min-height: 75vh;
+  background: linear-gradient(135deg, #eff6ff, #ffffff 65%, #dbeafe);
+}
+
+.hero-content {
+  max-width: 850px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.intro {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+.btn-primary,
+.contact-button {
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.2);
+}
 </style>
+Voilà que le CSS. Regardez s'il n'y a pas des trucs qui se répètent et si vous pouvez encore éventuellement lui donner un peu plus de couleur.
